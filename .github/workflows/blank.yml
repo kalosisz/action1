@@ -32,7 +32,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          while read -r line; do
+          while IFS= read -r line; do
             echo "$line"
             echo "$line" >> "$GITHUB_ENV"
           done <<< ${{ vars.VARS }}
