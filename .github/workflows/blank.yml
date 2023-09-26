@@ -35,7 +35,7 @@ jobs:
           while IFS= read -r line; do
             echo "$line"
             echo "$line" >> "$GITHUB_ENV"
-          done <<< ${{ vars.VARS }}
+          done <<< "${{ vars.VARS }}"
       - name: test var
         run: |
           echo VAR1="$VAR1"
