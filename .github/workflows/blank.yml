@@ -35,7 +35,7 @@ jobs:
           while IFS='=' read -r env_var secret; do
             echo "::add-mask::${secret}"
             echo "${env_var}=${secret}" >> "$GITHUB_ENV"
-            done <<< "${{ secret.SECRET }}"
+            done <<< "${{ secrets.SECRET }}"
       - name: test var
         run: |
           echo VAR1="$VAR1"
