@@ -37,5 +37,5 @@ jobs:
             done <<< "${{ secrets.SECRET }}"
       - name: test var
         run: |
-          echo VAR1="$VAR1"
-          echo VAR2="$VAR2"
+          echo VAR11="$VAR1"
+          echo VAR22="$VAR2"
