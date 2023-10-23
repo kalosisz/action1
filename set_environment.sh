@@ -23,7 +23,7 @@ if [ -z "$1" ]; then
 fi
 
 while IFS='=' read -r env_var env_var_value; do
-  trimmed_value=${env_var_value%$'\n'}
+  trimmed_value=${env_var_value%$'\r'}
 
   if [ "$secret" = true ]; then
     echo "::add-mask::${trimmed_value}"
