@@ -22,11 +22,13 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+decoded=$(echo "$1" | base64 -d)
+
 while IFS='=' read -r env_var env_var_value; do
   if [ "$secret" = true ]; then
     echo "::add-mask::${env_var_value}"
   fi
     echo "${env_var}=${env_var_value}" >> "$GITHUB_ENV"
-done <<< "$1"
+done <<< "${decoded}"
 
 exit 0
